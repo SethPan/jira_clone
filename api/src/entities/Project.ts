@@ -27,6 +27,9 @@ class Project extends BaseEntity {
   name: string;
 
   @Column('varchar', { nullable: true })
+  nickname: string;
+
+  @Column('varchar', { nullable: true })
   url: string | null;
 
   @Column('text', { nullable: true })

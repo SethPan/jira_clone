@@ -20,12 +20,14 @@ const ProjectSettings = ({ project, fetchProject }) => {
     <Form
       initialValues={Form.initialValues(project, get => ({
         name: get('name'),
+        nickname: get('nickname'),
         url: get('url'),
         category: get('category'),
         description: get('description'),
       }))}
       validations={{
         name: [Form.is.required(), Form.is.maxLength(100)],
+        nickname: [Form.is.required(), Form.is.maxLength(100)],
         url: Form.is.url(),
         category: Form.is.required(),
       }}
@@ -45,6 +47,7 @@ const ProjectSettings = ({ project, fetchProject }) => {
           <FormHeading>Project Details</FormHeading>
 
           <Form.Field.Input name="name" label="Name" />
+          <Form.Field.Input name="nickname" label="Nickname" />
           <Form.Field.Input name="url" label="URL" />
           <Form.Field.TextEditor
             name="description"

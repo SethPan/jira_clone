@@ -23,6 +23,8 @@ import { Comment, Project, User } from '.';
 class Issue extends BaseEntity {
   static validations = {
     title: [is.required(), is.maxLength(200)],
+    // added this
+    color: [is.required(), is.maxLength(4), is.minLength(4)],
     type: [is.required(), is.oneOf(Object.values(IssueType))],
     status: [is.required(), is.oneOf(Object.values(IssueStatus))],
     priority: [is.required(), is.oneOf(Object.values(IssuePriority))],
@@ -35,6 +37,10 @@ class Issue extends BaseEntity {
 
   @Column('varchar')
   title: string;
+
+  // added this
+  @Column('varchar', { nullable: true })
+  color: string;
 
   @Column('varchar')
   type: IssueType;

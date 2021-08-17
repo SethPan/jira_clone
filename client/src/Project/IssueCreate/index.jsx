@@ -41,6 +41,7 @@ const ProjectIssueCreate = ({ project, fetchProject, onCreate, modalClose }) => 
       initialValues={{
         type: IssueType.TASK,
         title: '',
+        color: '#fff',
         description: '',
         reporterId: currentUserId,
         userIds: [],
@@ -49,6 +50,7 @@ const ProjectIssueCreate = ({ project, fetchProject, onCreate, modalClose }) => 
       validations={{
         type: Form.is.required(),
         title: [Form.is.required(), Form.is.maxLength(200)],
+        color: [Form.is.required(), Form.is.maxLength(4), Form.is.minLength(4)],
         reporterId: Form.is.required(),
         priority: Form.is.required(),
       }}
@@ -83,6 +85,11 @@ const ProjectIssueCreate = ({ project, fetchProject, onCreate, modalClose }) => 
           name="title"
           label="Short Summary"
           tip="Concisely summarize the issue in one or two sentences."
+        />
+        <Form.Field.Input
+          name="color"
+          label="issue color"
+          tip="Type a 3 character RBG code preceeded by #"
         />
         <Form.Field.TextEditor
           name="description"

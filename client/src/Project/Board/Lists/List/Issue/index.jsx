@@ -18,6 +18,15 @@ const ProjectBoardListIssue = ({ projectUsers, issue, index }) => {
 
   const assignees = issue.userIds.map(userId => projectUsers.find(user => user.id === userId));
 
+  // added this and the background property on issue
+  function color() {
+    if (!issue.color) {
+      return '#fff';
+    }
+    console.log(issue.color);
+    return issue.color;
+  }
+
   return (
     <Draggable draggableId={issue.id.toString()} index={index}>
       {(provided, snapshot) => (
@@ -28,7 +37,10 @@ const ProjectBoardListIssue = ({ projectUsers, issue, index }) => {
           {...provided.draggableProps}
           {...provided.dragHandleProps}
         >
-          <Issue isBeingDragged={snapshot.isDragging && !snapshot.isDropAnimating}>
+          <Issue
+            isBeingDragged={snapshot.isDragging && !snapshot.isDropAnimating}
+            style={{ background: color() }}
+          >
             <Title>{issue.title}</Title>
             <Bottom>
               <div>

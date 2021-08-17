@@ -7,15 +7,22 @@
     "pre-commit": "cd api && npm run pre-commit && cd ../client && npm run pre-commit",
     "install-dependencies": "npm install && cd api && npm install && cd ../client && npm install",
     "build": "cd api && npm run build && cd ../client && npm run build",
-    "start:production": "cd api && npm run start:production && cd ../client && npm run start:production"
+    "start:production": "cd api && npm run start:production && cd ../client && npm run start:production",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "devDependencies": {
+    "@babel/core": "^7.15.0",
+    "@storybook/addon-actions": "^6.3.7",
+    "@storybook/addon-essentials": "^6.3.7",
+    "@storybook/addon-links": "^6.3.7",
+    "@storybook/react": "^6.3.7",
+    "babel-loader": "^8.2.2",
     "husky": "^4.0.0-beta.5"
   },
   "husky": {
     "hooks": {
       "pre-commit": "npm run pre-commit"
     }
-  },
-  "dependencies": {}
+  }
 }
